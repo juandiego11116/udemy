@@ -1,6 +1,6 @@
 package org.juangarcia.poointerfaces.printig.model;
 
-public class Report extends Paper{
+public class    Report extends Paper{
 
     private String author;
     private String reviewer;
