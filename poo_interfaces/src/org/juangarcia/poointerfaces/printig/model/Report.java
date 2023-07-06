@@ -1,11 +1,11 @@
 package org.juangarcia.poointerfaces.printig.model;
 
-public class    Report extends Paper{
+public class Report extends Paper implements Printable{
 
-    private String author;
-    private String reviewer;
+    private Person author;
+    private Person reviewer;
 
-    public Report(String content, String author, String reviewer) {
+    public Report(String content, Person author, Person reviewer) {
         super(content);
         this.author = author;
         this.reviewer = reviewer;

@@ -1,18 +1,20 @@
 package org.juangarcia.poointerfaces.printig.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class Resume extends Paper{
+public class Resume extends Paper implements Printable{
 
-    private String person;
+    private Person person;
     private String career;
-    private ArrayList<String> experiences;
+    private List<String> experiences;
 
-    public Resume(String content, String person, String career, ArrayList<String> experiences) {
+
+    public Resume( Person person, String career, String content) {
         super(content);
         this.person = person;
         this.career = career;
-        this.experiences = experiences;
+        this.experiences = new ArrayList<>();
     }
 
     public Resume addExperience(String experience){
@@ -22,6 +24,14 @@ public class Resume extends Paper{
 
     @Override
     public String print() {
-        return null;
+        StringBuilder sb = new StringBuilder("Name: ");
+        sb.append("Resume: ").append(this.content)
+                .append("\n").append("Profession")
+                .append(this.career).append("\n")
+                .append("Experience: \n");
+        for (String exp: this.experiences){
+            sb.append("- ").append(exp).append("\n");
+        }
+        return sb.toString();
     }
 }
